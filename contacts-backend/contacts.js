@@ -5,25 +5,19 @@ const db = {}
 
 const defaultData = {
   contacts: [
-    {
+    { 
       id: 'erik',
       name: 'Erik Thomsen',
       email: 'etho201@gmail.com',
       cell: '9199390222',
       avatarURL: config.origin + '/erik.jpg'
     },
-    {
-      id: 'michael',
-      name: 'Michael Jackson',
-      email: 'michael@reacttraining.com',
-      avatarURL: config.origin + '/michael.jpg'
-    },
-    {
-      id: 'tyler',
-      name: 'Tyler McGinnis',
-      email: 'tyler@reacttraining.com',
-      avatarURL: config.origin + '/tyler.jpg'
-    },
+    // {
+    //   id: 'tyler',
+    //   name: 'Tyler McGinnis',
+    //   email: 'tyler@reacttraining.com',
+    //   avatarURL: config.origin + '/tyler.jpg'
+    // },
     {
       id: 'renee',
       name: 'Renee Thomsen',

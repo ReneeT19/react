@@ -72,11 +72,12 @@ clearQuery = () => {
                 //UI for each item below;//whenever you use map function a key prop needs to be used
                 <li key={contact.id} className='contact-list-item'> 
                 <div className='contact-avatar' style={{
-                    backgroundImage: `url(${contact.avartarURL})`
-                }}/>  
+                    backgroundImage: `url(${contact.avatarURL})`
+                }}></div>  
                 <div className='contact-details'>
                     <p>{contact.name}</p>
                     <p>{contact.email}</p>
+                    <p>{contact.cell}</p>
                 </div>
                 <button onClick={() => onDeleteContact(contact)} className='contact-remove'>
                 Remove
