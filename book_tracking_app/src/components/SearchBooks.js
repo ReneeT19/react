@@ -62,8 +62,11 @@ class SearchBooks extends Component {
             <div className="search-book-results-msg">No results found</div>}
           { searchstate === 'results' &&
             <BooksGridInfo books={booksFound} shelfChange={shelfChange} />}
-
+        <div className="go-back">
+          <Link to="/"><button>Go Back</button></Link>
         </div>
+        </div>
+
       </div>
     )
   }
