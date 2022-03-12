@@ -28,11 +28,26 @@ import reportWebVitals from './reportWebVitals';
 // );
 
 // JSX - create an object and use it dynamically
-let city = {
-  name: "Shanghai",
-  country: "China"
-};
+// let city = {
+//   name: "Shanghai",
+//   country: "China"
+// };
+// ReactDOM.render(
+//   <h1 id="heading" className="cool-text">{city.name} is in {city.country}</h1>,
+//   document.getElementById('root')
+// );
+
+//Create components
+function Hello() {
+  return (
+    <div>
+      <h1>Welcome to React!</h1>
+      <p>build app</p>
+    </div>
+  );
+}
+
 ReactDOM.render(
-  <h1 id="heading" className="cool-text">{city.name} is in {city.country}</h1>,
+  <Hello />,   //JSX self-close to make the code cleaner and it needs to be Capitalized
   document.getElementById('root')
 );
