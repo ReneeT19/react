@@ -38,16 +38,34 @@ import reportWebVitals from './reportWebVitals';
 // );
 
 //Create components
-function Hello() {
+// function Hello(props) {  //pass props to make it dynamic
+//   console.log(props); //it will take the attribute added to the Hello tag and refer props.library in JSX
+//   console.log(Object.keys(props)); //return keys in inspect so the number of props is more dynamic
+//   return (
+//     <div>
+//       <h1>Welcome to {props.library}!</h1>
+//       <p>{props.message}</p>
+//       <p>{props.number} props total</p>
+//       <p>{Object.keys(props).length} Props Total</p>
+//     </div>
+//   );
+// }
+// passing value instead of the entire object to make it look cleaner
+function Hello({library, message, number}) {  //pass props to make it dynamic
   return (
     <div>
-      <h1>Welcome to React!</h1>
-      <p>build app</p>
+      <h1>Welcome to {library}!</h1>
+      <p>{message}</p>
+      <p>{number} props total</p>
     </div>
   );
 }
 
 ReactDOM.render(
-  <Hello />,   //JSX self-close to make the code cleaner and it needs to be Capitalized
+  <Hello  
+  library="React"
+  message="Have fun!"
+  number={3} //for jsx number it needs to be in {}
+  />,   //JSX self-close to make the code cleaner and it needs to be Capitalized
   document.getElementById('root')
 );
