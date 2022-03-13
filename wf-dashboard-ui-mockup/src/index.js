@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 // example to use createElement
@@ -51,21 +50,107 @@ import reportWebVitals from './reportWebVitals';
 //   );
 // }
 // passing value instead of the entire object to make it look cleaner
-function Hello({library, message, number}) {  //pass props to make it dynamic
+// function Hello({library, message, number}) {  //pass props to make it dynamic
+//   return (
+//     <div>
+//       <h1>Welcome to {library}!</h1>
+//       <p>{message}</p>
+//       <p>{number} props total</p>
+//     </div>
+//   );
+// }
+
+// ReactDOM.render(
+//   <Hello  
+//   library="React"
+//   message="Have fun!"
+//   number={3} //for jsx number it needs to be in {}
+//   />,   //JSX self-close to make the code cleaner and it needs to be Capitalized
+//   document.getElementById('root')
+// );
+
+//Composing Components
+// function Lake(props) { //or pass {name}
+//   return (
+//     <h1>{props.name}</h1> //change to name
+//   )
+// }
+// function App() {  //parent component
+//   return (
+//     <div>App
+//     <Lake name="Lake Tahoe" />
+//     <Lake name="Shirley Lake" />
+//     <Lake name="Angora Lake" />
+//     </div>
+//   );
+// }
+
+// ReactDOM.render(
+//   <App />,
+//   document.getElementById('root')
+// );
+
+//Rendering list
+// const lakeList = [
+//   "Lake 1",
+//   "Lake 2",
+//   "Lake 3"
+// ];
+
+// functon App({lakes}) { // pass shorthand lakes instead of props
+//   return (
+//     <ul>
+//       {lakes.map(lake => ( //use map when building a list
+//         <li>{lake}</li>
+//       ))}
+//     </ul>
+//   );
+// }
+
+// ReactDOM.render(
+//   <App lakes={lakeList}/>, //pass the const as property
+//   document.getElementById('root')
+// );
+
+//Rendering list of objects + adding keys
+// const lakeList = [
+//   {id: "1", name: "Echo", trailhead: "Echo"},
+//   {id: "2", name: "Maud", trailhead: "Wrights"},
+//   {id: "3", name: "Velma", trailhead: "Bayview"}
+// ];
+
+// function App({lakes}) { // pass shorthand lakes instead of props
+//   return (
+//     <div>
+//       {lakes.map(lake => ( //use map when building a list and put each lake object in one div
+//       <div key={lake.id}>  
+//         <h2>{lake.name}</h2>
+//         <p>Accessed by: {lake.trailhead}</p>
+//       </div>
+//       ))}
+//     </div>
+//   );
+// }
+
+// ReactDOM.render(
+//   <App lakes={lakeList}/>, //pass the const as property
+//   document.getElementById('root')
+// );
+
+//create keys for numbers
+const itemList = [1,2,3,4,5];
+
+function App({items}) { // pass shorthand lakes instead of props
   return (
-    <div>
-      <h1>Welcome to {library}!</h1>
-      <p>{message}</p>
-      <p>{number} props total</p>
-    </div>
+    <ul>
+      {items.map(item => ( //use map when building a list and put each lake object in one div
+      <li key={item.toString()}>{item}</li> //or use (item,i) to iterate and pass {i} as key
+      ))}
+    </ul>
   );
 }
 
 ReactDOM.render(
-  <Hello  
-  library="React"
-  message="Have fun!"
-  number={3} //for jsx number it needs to be in {}
-  />,   //JSX self-close to make the code cleaner and it needs to be Capitalized
+  <App items={itemList}/>, //pass the const as property
   document.getElementById('root')
 );
