@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
@@ -192,35 +193,102 @@ import reportWebVitals from './reportWebVitals';
 // );
 
 //React Fragments
-function Lake() { 
+// function Lake() { 
+//   return (
+//       <h1>Visit Lake </h1>
+//   );
+// }
+
+// function SkiResort() {
+//   return (
+//       <h1>Visit Ski Resort </h1>
+//   );
+// }
+
+// function App() { //render two sibling components at the same time and avoid many div tags
+//   return (
+//     <React.Fragment>  
+//      <Lake />
+//      <SkiResort />
+//     </React.Fragment>
+//   );
+// }
+
+// ReactDOM.render( // <>/</> is the same as React.Fragment tag; 
+//   <App />,
+//   /*
+//   use the code below instead of in App component renders the same result; 
+//   comment out App component above
+//   <>
+//   <Lake /> <Lake />
+//   </>,
+//   */ 
+//   document.getElementById('root')
+// );
+
+//Array - ways to get item
+// const snacks = ["popcorn", "pretzels", "pineapple"];
+// console.log(snacks[0]);
+
+// const [first, , third] = ["popcorn", "pretzels", "pineapple"];  
+// //you can give it whatever name you want to replace first, second, third
+// console.log(third);
+
+//State with Hooks
+// function App() {
+//   //useState is a built-in hook, which is a function to handle state changes
+//   //create a constant and apply array destructuring for status value; set initial status to Open
+//   const [status, setStatus] = useState("Open"); //useStateu returns two values: status value,status update function
+//   // have multiple different state values in the same component
+//   const [year, setYear] = useState(2022);
+//   const [manager, setManager] = useState("M");
+//   return ( //when you have multiple objects, wrap up with <>/</>
+//     <> 
+//     <div>
+//     <h1>Year: {year}</h1>
+//     <button onClick={() => setYear(year + 1)}>New Year</button>
+//     <button onClick={() => setYear("2022")}>Current Year</button>
+//     </div>
+//     <div>
+//     <h1>Manager: {manager}</h1>
+//     <button onClick={() => setManager("M")}>Current Manager</button>
+//     <button onClick={() => setManager("S")}>New Manager</button>
+//     </div>
+//     <div>
+//       <h1>Status: {status}</h1>
+//       <button onClick={() => setStatus("Open")}>Open</button>
+//       <button onClick={() => setStatus("Back in 5")}>Break</button>
+//       <button onClick={() => setStatus("Close")}>Close</button>
+//     </div>
+//     </>
+//   )
+// }
+
+// ReactDOM.render(
+//   <App />,
+//   document.getElementById('root')
+// );
+
+//useEffect
+function Checkbox() {
+  const [checked, setChecked] = useState(false); //true or false as the onChange is a boolean expression
+  useEffect(() => {
+    alert(`checked: ${checked.toString()}`); //the alert itself fires before we render the component;
+    //however, after useing useEffect, it allows performing side effects inside the component
+  });
   return (
-      <h1>Visit Lake </h1>
+    <>
+    <input 
+    type="checkbox"
+    value={checked}
+    onChange={() => setChecked(checked => !checked) //a toggle: whatever the value of checked is, returns the opposite
+    }/>
+    {checked ? "checked" : "not checked"}
+    </>
   );
 }
 
-function SkiResort() {
-  return (
-      <h1>Visit Ski Resort </h1>
-  );
-}
-
-function App() { //render two sibling components at the same time and avoid many div tags
-  return (
-    <React.Fragment>  
-     <Lake />
-     <SkiResort />
-    </React.Fragment>
-  );
-}
-
-ReactDOM.render( // <>/</> is the same as React.Fragment tag; 
-  <App />,
-  /*
-  use the code below instead of in App component renders the same result; 
-  comment out App component above
-  <>
-  <Lake /> <Lake />
-  </>,
-  */ 
+ReactDOM.render(
+  <Checkbox />,
   document.getElementById('root')
 );
