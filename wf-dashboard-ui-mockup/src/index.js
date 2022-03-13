@@ -138,19 +138,89 @@ import reportWebVitals from './reportWebVitals';
 // );
 
 //create keys for numbers
-const itemList = [1,2,3,4,5];
+// const itemList = [1,2,3,4,5];
 
-function App({items}) { // pass shorthand lakes instead of props
+// function App({items}) { // pass shorthand lakes instead of props
+//   return (
+//     <ul>
+//       {items.map(item => ( //use map when building a list and put each lake object in one div
+//       <li key={item.toString()}>{item}</li> //or use (item,i) to iterate and pass {i} as key
+//       ))}
+//     </ul>
+//   );
+// }
+
+// ReactDOM.render(
+//   <App items={itemList}/>, //pass the const as property
+//   document.getElementById('root')
+// );
+
+//Conditioning rendering
+// set in the render "season = "summer" and pass season as props to App function and give name property to pass
+// as props in lake and skiresort functions to make the two functions dynamic
+// function Lake({name}) {   //try to keep the children function dynamic by passing {name}
+//   return (
+//     <div>
+//       <h1>Visit {name} </h1>
+//     </div>
+//   );
+// }
+
+// function SkiResort({name}) {
+//   return (
+//     <div>
+//       <h1>Visit {name} </h1>
+//     </div>
+//   );
+// }
+
+// function App({season}) { //use ternary expression to list the conditions
+//   return (
+//     <div>
+//       {season === "summer" ? (<Lake name="Jenny Lake" />) :
+//       season === "winter" ? (<SkiResort name="JHMR" />) :
+//       (
+//         <h1>Come back in the summer or winter!</h1>
+//       )}
+//     </div>
+//   );
+// }
+
+// ReactDOM.render(
+//   <App season="summer"/>,
+//   document.getElementById('root')
+// );
+
+//React Fragments
+function Lake() { 
   return (
-    <ul>
-      {items.map(item => ( //use map when building a list and put each lake object in one div
-      <li key={item.toString()}>{item}</li> //or use (item,i) to iterate and pass {i} as key
-      ))}
-    </ul>
+      <h1>Visit Lake </h1>
   );
 }
 
-ReactDOM.render(
-  <App items={itemList}/>, //pass the const as property
+function SkiResort() {
+  return (
+      <h1>Visit Ski Resort </h1>
+  );
+}
+
+function App() { //render two sibling components at the same time and avoid many div tags
+  return (
+    <React.Fragment>  
+     <Lake />
+     <SkiResort />
+    </React.Fragment>
+  );
+}
+
+ReactDOM.render( // <>/</> is the same as React.Fragment tag; 
+  <App />,
+  /*
+  use the code below instead of in App component renders the same result; 
+  comment out App component above
+  <>
+  <Lake /> <Lake />
+  </>,
+  */ 
   document.getElementById('root')
 );
