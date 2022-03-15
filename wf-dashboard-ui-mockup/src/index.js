@@ -270,25 +270,61 @@ import reportWebVitals from './reportWebVitals';
 // );
 
 //useEffect
-function Checkbox() {
-  const [checked, setChecked] = useState(false); //true or false as the onChange is a boolean expression
+// function Checkbox() {
+//   const [checked, setChecked] = useState(false); //true or false as the onChange is a boolean expression
+//   useEffect(() => {
+//     alert(`checked: ${checked.toString()}`); //the alert itself fires before we render the component;
+//     //however, after useing useEffect, it allows performing side effects inside the component
+//   });
+//   return (
+//     <>
+//     <input 
+//     type="checkbox"
+//     value={checked}
+//     onChange={() => setChecked(checked => !checked) //a toggle: whatever the value of checked is, returns the opposite
+//     }/>
+//     {checked ? "checked" : "not checked"}
+//     </>
+//   );
+// }
+
+// ReactDOM.render(
+//   <Checkbox />,
+//   document.getElementById('root')
+// );
+
+//useEffect dependency array
+function InputDependency() {
+  const [val, setVal] = useState(""); //give the input an empty array as initial value
+  const [val2, setVal2] = useState("");
+
+  // Why using dependency array? 
+  // because we want only one of these useEffects to fire if that state value is being updated
+  // because we won't trigger unnecessary re-renders if we pass the right values to that array
+  useEffect(() => { //takes two arguments (the state variable that we want to listen for changes)
+    console.log(`field 1: ${val}`);
+  }, [val]);   //adding [val] dependency array will listen to only
+  // [val], [val2] will let you listen to both whenever you type in val input
+  
   useEffect(() => {
-    alert(`checked: ${checked.toString()}`); //the alert itself fires before we render the component;
-    //however, after useing useEffect, it allows performing side effects inside the component
-  });
+    console.log(`field 2: ${val2}`);
+  }, [val2]); //adding [val2] dependency array will listen to only
+  
+  
   return (
     <>
-    <input 
-    type="checkbox"
-    value={checked}
-    onChange={() => setChecked(checked => !checked) //a toggle: whatever the value of checked is, returns the opposite
-    }/>
-    {checked ? "checked" : "not checked"}
+    <label>Favorite Phrase:
+      <input value={val} onChange={e => setVal(e.target.value)} />
+    </label>
+    <br/>
+    <label>Second Favorite Phrase:
+      <input value={val2} onChange={e => setVal2(e.target.value)} />
+    </label>
     </>
   );
 }
 
 ReactDOM.render(
-  <Checkbox />,
+  <InputDependency />,
   document.getElementById('root')
 );
