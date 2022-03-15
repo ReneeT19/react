@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useReducer} from 'react';
 import { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -330,32 +330,58 @@ import reportWebVitals from './reportWebVitals';
 // );
 
 // Fetch API data with useEffect
-function GitHubUser({login}) { //fetch data from Github API; pass login as dynamic param and call in the parent component
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    fetch(`https://api.github.com/users/${login}`)
-    .then(res => res.json())
-    .then(setData) //call the function with the new value of data
-    .catch(console.error);
-  }, []);
+// function GitHubUser({login}) { //fetch data from Github API; pass login as dynamic param and call in the parent component
+//   const [data, setData] = useState(null);
+//   useEffect(() => {
+//     fetch(`https://api.github.com/users/${login}`)
+//     .then(res => res.json())
+//     .then(setData) //call the function with the new value of data
+//     .catch(console.error);
+//   }, []);
 
-  if(data) { //display the block of json data or fetch particular data using JSON keys
-    return (
-      <>
-      <div>{JSON.stringify(data)}</div> 
-      <h1>{data.login}</h1>
-      <img src={data.avatar_url} width={100} /> 
-      </>
-    )
-  }
-  return null; //if no user, return null
-}
+//   if(data) { //display the block of json data or fetch particular data using JSON keys
+//     return (
+//       <>
+//       <div>{JSON.stringify(data)}</div> 
+//       <h1>{data.login}</h1>
+//       <img src={data.avatar_url} width={100} /> 
+//       </>
+//     )
+//   }
+//   return null; //if no user, return null
+// }
 
-function FetchAPI() { // return GitHubUser with a property of login that's passed to GitHubUser function
-  return <GitHubUser login="ReneeT19" />
+// function FetchAPI() { // return GitHubUser with a property of login that's passed to GitHubUser function
+//   return <GitHubUser login="ReneeT19" />
+// }
+
+// ReactDOM.render(
+//   <FetchAPI />,
+//   document.getElementById('root')
+// );
+
+// useReducer
+function Checkbox() {
+  // const [checked, setChecked] = useState(false); 
+  // use useReducer and call the function toggle instead of setChecked
+  const [checked, toggle] = useReducer(checked => !checked, false); //false is the initial state
+  // we don't need the toggle function if we bring the logic one level up to the useReducer function above
+  // function toggle() { //extract the state change into a functioin and call this function in onChange
+  //   setChecked(checked => !checked)
+  // }
+
+  return (
+    <>
+    <input 
+    type="checkbox"
+    value={checked}
+    onChange={toggle}/>
+    {checked ? "checked" : "not checked"}
+    </>
+  );
 }
 
 ReactDOM.render(
-  <FetchAPI />,
+  <Checkbox />,
   document.getElementById('root')
 );
