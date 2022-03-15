@@ -294,37 +294,68 @@ import reportWebVitals from './reportWebVitals';
 // );
 
 //useEffect dependency array
-function InputDependency() {
-  const [val, setVal] = useState(""); //give the input an empty array as initial value
-  const [val2, setVal2] = useState("");
+// function InputDependency() {
+//   const [val, setVal] = useState(""); //give the input an empty array as initial value
+//   const [val2, setVal2] = useState("");
 
-  // Why using dependency array? 
-  // because we want only one of these useEffects to fire if that state value is being updated
-  // because we won't trigger unnecessary re-renders if we pass the right values to that array
-  useEffect(() => { //takes two arguments (the state variable that we want to listen for changes)
-    console.log(`field 1: ${val}`);
-  }, [val]);   //adding [val] dependency array will listen to only
-  // [val], [val2] will let you listen to both whenever you type in val input
+//   // Why using dependency array? 
+//   // because we want only one of these useEffects to fire if that state value is being updated
+//   // because we won't trigger unnecessary re-renders if we pass the right values to that array
+//   useEffect(() => { //takes two arguments (the state variable that we want to listen for changes)
+//     console.log(`field 1: ${val}`);
+//   }, [val]);   //adding [val] dependency array will listen to only
+//   // [val], [val2] will let you listen to both whenever you type in val input
   
+//   useEffect(() => {
+//     console.log(`field 2: ${val2}`);
+//   }, [val2]); //adding [val2] dependency array will listen to only
+  
+  
+//   return (
+//     <>
+//     <label>Favorite Phrase:
+//       <input value={val} onChange={e => setVal(e.target.value)} />
+//     </label>
+//     <br/>
+//     <label>Second Favorite Phrase:
+//       <input value={val2} onChange={e => setVal2(e.target.value)} />
+//     </label>
+//     </>
+//   );
+// }
+
+// ReactDOM.render(
+//   <InputDependency />,
+//   document.getElementById('root')
+// );
+
+// Fetch API data with useEffect
+function GitHubUser({login}) { //fetch data from Github API; pass login as dynamic param and call in the parent component
+  const [data, setData] = useState(null);
   useEffect(() => {
-    console.log(`field 2: ${val2}`);
-  }, [val2]); //adding [val2] dependency array will listen to only
-  
-  
-  return (
-    <>
-    <label>Favorite Phrase:
-      <input value={val} onChange={e => setVal(e.target.value)} />
-    </label>
-    <br/>
-    <label>Second Favorite Phrase:
-      <input value={val2} onChange={e => setVal2(e.target.value)} />
-    </label>
-    </>
-  );
+    fetch(`https://api.github.com/users/${login}`)
+    .then(res => res.json())
+    .then(setData) //call the function with the new value of data
+    .catch(console.error);
+  }, []);
+
+  if(data) { //display the block of json data or fetch particular data using JSON keys
+    return (
+      <>
+      <div>{JSON.stringify(data)}</div> 
+      <h1>{data.login}</h1>
+      <img src={data.avatar_url} width={100} /> 
+      </>
+    )
+  }
+  return null; //if no user, return null
+}
+
+function FetchAPI() { // return GitHubUser with a property of login that's passed to GitHubUser function
+  return <GitHubUser login="ReneeT19" />
 }
 
 ReactDOM.render(
-  <InputDependency />,
+  <FetchAPI />,
   document.getElementById('root')
 );
