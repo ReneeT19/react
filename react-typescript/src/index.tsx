@@ -1,9 +1,11 @@
 import ReactDOM from 'react-dom';
+import Parent from './props/Parent';
 
 //create a component App
 const App = () => {
   return <>
-    <h1>Hi React!</h1>
+    <h1>Hi I am a GrandParent - App Component!</h1>
+    <Parent />
   </>
 };
 
