@@ -1,10 +1,10 @@
-import { Child } from './Child';
+import { Child, ChildAsFC } from './Child';
 
-const Parent = () => {
+const Parent = () => {  //in Parent, give the color prop a string value to show it
     return (
     <>
     <h1>Hi I am a Parent</h1>
-    <Child />
+    <ChildAsFC color="red"/>
     </>
 
     )
