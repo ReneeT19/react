@@ -4,9 +4,11 @@ const Parent = () => {  //in Parent, give the color prop a string value to show 
     return (
     <>
     <h1>Hi I am a Parent</h1>
-    <ChildAsFC color="red"/>
+    <ChildAsFC color="red" onClick={() => console.log("clicked")}/>
+    {/* <ChildAsFC color="red" onClick={() => console.log("clicked")}>
+        abcde
+    </ChildAsFC> */}
     </>
-
     )
 };
 
