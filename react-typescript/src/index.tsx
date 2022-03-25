@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom';
 import Parent from './props/Parent';
 import GuestList from './state/GuestList';
+import UserSearch from './state/UserSearch';
 
 //create a component App
 const App = () => {
@@ -8,6 +9,7 @@ const App = () => {
     {/* <h1>Hi I am a GrandParent - App Component!</h1> */}
     <div>
       <GuestList />
+      <UserSearch />
     </div>
     {/* <Parent /> */}
   </>
