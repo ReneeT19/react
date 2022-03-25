@@ -26,8 +26,7 @@ const UserSearch: React.FC = () => {
         <input value={name} onChange={e => setName(e.target.value)} />
         <button onClick={onClick}>Find User</button>
         <div> 
-            {user && user.name} 
-            {user && user.age}
+            {user && user.name} {user && user.age}
         </div>
     </div>;
 };
