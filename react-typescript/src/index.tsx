@@ -1,11 +1,15 @@
 import ReactDOM from 'react-dom';
 import Parent from './props/Parent';
+import GuestList from './state/GuestList';
 
 //create a component App
 const App = () => {
   return <>
-    <h1>Hi I am a GrandParent - App Component!</h1>
-    <Parent />
+    {/* <h1>Hi I am a GrandParent - App Component!</h1> */}
+    <div>
+      <GuestList />
+    </div>
+    {/* <Parent /> */}
   </>
 };
 
