@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import EventComponent from './events/EventComponent';
-import Parent from './props/Parent';
+import UserSearch2 from './refs/UserSearch2';
 import GuestList from './state/GuestList';
 import UserSearch from './state/UserSearch';
 
@@ -11,6 +11,7 @@ const App = () => {
     <div>
       <GuestList />
       <UserSearch />
+      <UserSearch2 />
       <EventComponent />
     </div>
     {/* <Parent /> */}
