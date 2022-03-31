@@ -21,9 +21,10 @@ const UserSearch: React.FC = () => {
 
     // {user && user.name} means only if user exists, it will render user.name;
     //otherwise {user.name} will show error because user could be undefined
+    //inline event handler for onChange
     return <div> 
         <h3>User Search</h3>
-        <input value={name} onChange={e => setName(e.target.value)} />
+        <input value={name} onChange={e => setName(e.target.value)} /> 
         <button onClick={onClick}>Find User</button>
         <div> 
             {user && user.name} {user && user.age}
