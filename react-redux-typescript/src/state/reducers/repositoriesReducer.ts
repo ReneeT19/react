@@ -5,9 +5,16 @@ interface RepositoriesState {
     data: string[]; //api data
 }
 
-const reducer = (state: RepositoriesState, action: any) => {
+//replace `action: any` with interface; action is an object that must have a type property and optionally a payload
+interface Action {
+    type: string;
+    payload?: any; //optional
+}
+
+//pass interface annotation to the reducer - using TS to check value type (for example, data has to be string[] after adding the annotation)
+const reducer = (state: RepositoriesState, action: Action): RepositoriesState => {
 //usually use switch statement within reducer
-    switch(action.type) {
+    switch(action.type) { //if typing 'action.tes' TS will show error because the interface defined only has type, same as payload below
         //different cases are different action types defined in the design
         case 'search_repositories':
             return { loading: true, error: null, data: []} //new search so data is empty array
