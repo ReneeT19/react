@@ -11,8 +11,28 @@ interface Action {
     payload?: any; //optional
 }
 
+//comment out the code above and seperate interfaces for action based on the design
+//replace `action: Action` with the separate interfaces created
+interface SearchRepositoriesAction {
+    type: 'search_repositories';
+}
+
+interface SearchRepositoriesSuccessAction {
+    type: 'search_repositories_success';
+    payload: string[];
+}
+
+interface SearchRepositoriesErrorAction {
+    type: 'search_repositories_error';
+    payload: string;
+}
+
+
 //pass interface annotation to the reducer - using TS to check value type (for example, data has to be string[] after adding the annotation)
-const reducer = (state: RepositoriesState, action: Action): RepositoriesState => {
+const reducer = 
+    (state: RepositoriesState, 
+    action: SearchRepositoriesAction | SearchRepositoriesSuccessAction | SearchRepositoriesErrorAction): 
+    RepositoriesState => {
 //usually use switch statement within reducer
     switch(action.type) { //if typing 'action.tes' TS will show error because the interface defined only has type, same as payload below
         //different cases are different action types defined in the design
