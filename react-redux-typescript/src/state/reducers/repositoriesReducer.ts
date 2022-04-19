@@ -19,10 +19,15 @@ interface RepositoriesState {
 //replace `action: Action` with the separate interfaces created
 //the comments above refer to the code in index.ts under actions folder
 
+const initialState = {
+    loading: false,
+    error: null,
+    data: []
+};
 
 //pass interface annotation to the reducer - using TS to check value type (for example, data has to be string[] after adding the annotation)
 const reducer = 
-    (state: RepositoriesState, 
+    (state: RepositoriesState = initialState, 
     action: Action): 
     RepositoriesState => {
 //usually use switch statement within reducer
