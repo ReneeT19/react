@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux';
-import { store } from '../state';
+import { store } from '../redux';
 import RepositoriesList from './RepositoriesList';
 
 //Provider is the component to redux store that gives access to all redux components
