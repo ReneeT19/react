@@ -10,6 +10,6 @@ const reducers = combineReducers({
 
 export default reducers;
 
-//use built-in helper inside redux saying take this function reducers and give us the type whatever that function returns
+//use built-in helper inside redux saying take this function `reducers` and give us the type whatever that function returns
 //and assign it to RootState
 export type RootState = ReturnType<typeof reducers>;
