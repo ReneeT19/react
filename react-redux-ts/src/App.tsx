@@ -17,9 +17,9 @@ function App() {
   return (
     <div className="App">
       <h1>{amount}</h1>
-      <label>Enter the amount:
-        <input id='myInput' onChange={event => setValue(event.target.value)} />
-      </label>
+      <label>Enter the amount: 
+        <input id='myInput' onChange={event => setValue(event.target.value)} /><br></br>
+      </label><br></br>
       <button onClick={() => {depositMoney(Number(value)); clearUp()}}>Deposit</button>
       <button onClick={() => {withdrawMoney(Number(value)); clearUp()}}>Withdraw</button>
       <button onClick={() => {bankrupt(); clearUp()}}>Bankrupt</button>

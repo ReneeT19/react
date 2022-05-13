@@ -1,6 +1,22 @@
 .App {
   text-align: center;
 }
+button {
+  background-color: pink;
+  border-color: rgb(247, 9, 49);
+  border-radius: 10%;
+  margin-right: 10px;
+  color: rgb(247, 9, 49);
+}
+
+label {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color:rgb(247, 9, 49);
+}
+
+input {
+  background-color: lightpink;
+}
 
 .App-logo {
   height: 40vmin;
