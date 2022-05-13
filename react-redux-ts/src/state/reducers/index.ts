@@ -6,3 +6,6 @@ const reducers = combineReducers({
 });
 
 export default reducers;
+
+//assign the type of reducers to State so App.ts can recognize state and add this export to the entry point index.ts
+export type State = ReturnType<typeof reducers>
