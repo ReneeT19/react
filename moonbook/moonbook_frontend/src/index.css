@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* implement general css rules */
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+/* hide the scroll bar so we can add customized one */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
