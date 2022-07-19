@@ -1,3 +1,17 @@
+// An element with position: absolute; is positioned relative to the nearest positioned ancestor (instead of positioned relative to the viewport, like fixed).
+// However; if an absolute positioned element has no positioned ancestors, it uses the document body, and moves along with page scrolling.
 .sidebar {
-    
+    position: absolute; //there is no ancestor, so it's using the document body as reference
+    top: 0;
+    left: 0;
+    bottom: 0; //add this so there is no gap between the bottom and the screen
+    width: 25vw; //px is absolute while vw/vh, rem, em, % are relative; relative units are better suited to responsive design and scalable
+    background-color: #101010;
+    color: white;
+
+    //flex display makes it easier to design flexible responsive layout structure without using float or positioning.
+    display: flex;
+    flex-direction: column; //when you have several items layed vertically; default is row which lays items horizontally
+    justify-content: center;
+    align-items: center;
 }
