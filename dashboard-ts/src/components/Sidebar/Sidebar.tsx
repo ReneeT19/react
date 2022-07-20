@@ -19,6 +19,7 @@ const Sidebar = () => {
     // <aside> tag is often used for sidebars or a sticky note
     <aside className={styles.sidebar}>
         <div className={styles.sidebarContent}>
+            {/* first part of sidebarContent contains profile image, notification, name, email */}
             <div className={styles.profileDetails}>
                 <div className={styles.profileImageDiv}>
                     {/* The alt attribute provides alternative information for an image if a user for some reason cannot view it  */}
@@ -28,7 +29,7 @@ const Sidebar = () => {
                 <p className={styles.userName}>Samantha</p>
                 <p className={styles.userEmail}>samantha@email.com</p>
             </div>
-
+            {/* second part of sidebarContent contains navigation links */}
             <nav className={styles.sidebarNav}>
                 <ul>
                     {/* map the array created above so it's not hard coded */}
