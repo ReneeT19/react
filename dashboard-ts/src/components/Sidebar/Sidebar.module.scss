@@ -21,7 +21,7 @@
     
     display: flex;
     flex-direction: column;
-    justify-content: space-between; //between first part div and second part nav
+    justify-content: space-around; //add even space around the sidebar section
 }
 
 .profileDetails {
@@ -47,4 +47,38 @@
     position: absolute; 
     top: -1rem;
     right: 6rem;
+}
+
+.userName { //use properties from Figma
+    margin-top: 1rem;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.userEmail {
+    margin-top: 1rem;
+    opacity: 0.6; //this is from Figma as well; instead of using a different color, change opacity
+}
+
+.sidebarNav { //margin of the entire menu section
+    margin-top: -8rem;
+    margin-bottom: 3rem;
+}
+
+.sidebarNavItems {
+    margin: 2rem 0; //margin between items
+}
+
+.sidebarNavLink{
+    text-decoration: none; //to remove the default underscore
+    outline: none;
+    color: white;
+    opacity: 0.5; //from Figma
+    font-weight: 600; //from Figma
+    font-size: 25px; //from Figma
+
+    &Active { //the sidebarNavLink will inherit all features from sidebarNavLink except opacity
+        @extend .sidebarNavLink;
+        opacity: 1;
+    }
 }

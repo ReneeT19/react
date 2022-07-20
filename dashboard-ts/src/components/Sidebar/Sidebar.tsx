@@ -34,12 +34,13 @@ const Sidebar = () => {
                 <ul>
                     {/* map the array created above so it's not hard coded */}
                     {sidebarNavLinks.map(sidebarNavLink =>
-                        <li className={styles.sidebarNavItems}>
+                    // The key attribute in the <li> tag is necessary to remove bug/error in console
+                        <li className={styles.sidebarNavItems} key={sidebarNavLink}> 
                         {/* The NavLink is used when you want to highlight a link as active. So, on every routing to a page, the link is highlighted according to the activeClassName . Link is for links that need no highlighting. And a is for external links. */}
                         <Link 
                         className={
                             location.pathname === `/${sidebarNavLink}`
-                            ? styles.sidebarLinkActive 
+                            ? styles.sidebarNavLinkActive 
                             : styles.sidebarNavLink
                         }
                         to={`/${sidebarNavLink}`}
