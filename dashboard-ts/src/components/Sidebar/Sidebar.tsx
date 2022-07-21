@@ -30,6 +30,7 @@ const Sidebar = () => {
                 <p className={styles.userEmail}>samantha@email.com</p>
             </div>
             {/* second part of sidebarContent contains navigation links */}
+            
             <nav className={styles.sidebarNav}>
                 <ul>
                     {/* map the array created above so it's not hard coded */}
