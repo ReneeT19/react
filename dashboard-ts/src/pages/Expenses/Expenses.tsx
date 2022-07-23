@@ -5,6 +5,7 @@ import personTwo from '../../assets/png/person2.png';
 import personThree from '../../assets/png/person3.png';
 import addIcon from '../../assets/png/addIcon.png';
 import optionIcon from '../../assets/png/menuIcon.png';
+import cartIcon from '../../assets/svg/cartIcon.svg';
 
 import { BarChart, Bar, Cell, ResponsiveContainer } from 'recharts';
 
@@ -206,7 +207,7 @@ const Expenses = () => {
             <li className={styles.expenseItem}>
                 <div className={styles.expenseItemLeft}>
                   <div className={styles.expenseItemDiv}>
-                    <img src="cartIcon" alt="cart" />
+                    <img src={cartIcon} alt="cart" />
                   </div>
                   <div className={styles.expenseItemDetails}>
                     <p className={styles.expenseItemTitle}>Grocery</p>
