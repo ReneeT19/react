@@ -99,5 +99,11 @@
 }
 
 .expenseItemDiv {
-    
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

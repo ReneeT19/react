@@ -206,7 +206,7 @@ const Expenses = () => {
           <ul>
             <li className={styles.expenseItem}>
                 <div className={styles.expenseItemLeft}>
-                  <div className={styles.expenseItemDiv}>
+                  <div style={{ backgroundColor: 'blue' }} className={styles.expenseItemDiv}>
                     <img src={cartIcon} alt="cart" />
                   </div>
                   <div className={styles.expenseItemDetails}>
