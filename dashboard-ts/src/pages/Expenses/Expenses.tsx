@@ -6,6 +6,8 @@ import personThree from '../../assets/png/person3.png';
 import addIcon from '../../assets/png/addIcon.png';
 import optionIcon from '../../assets/png/menuIcon.png';
 import cartIcon from '../../assets/svg/cartIcon.svg';
+import transportIcon from '../../assets/svg/transportIcon.svg';
+import houseIcon from '../../assets/svg/houseIcon.svg';
 
 import { BarChart, Bar, Cell, ResponsiveContainer } from 'recharts';
 
@@ -144,6 +146,58 @@ const Expenses = () => {
     },
   ];
 
+  //in real-world example, use an API for the data
+  const todayExpenses = [
+    {
+      id: 1,
+      expense: "Grocery",
+      time: "5:12 pm",
+      location: "Belanja di pascar",
+      price: 326.8,
+      icon: cartIcon,
+      iconBackgroundColor: "#32a7e2",
+    },
+    {
+      id: 2,
+      expense: "Transportation",
+      time: "5:12 pm",
+      location: "Naik bus umum",
+      price: 15.0,
+      icon: transportIcon,
+      iconBackgroundColor: "#B548C6",
+    },
+    {
+      id: 3,
+      expense: "Housing",
+      time: "5:12 pm",
+      location: "Bayar Listrik",
+      price: 185.75,
+      icon: houseIcon,
+      iconBackgroundColor: "#FF8700",
+    },
+  ];
+
+  const previousExpenses = [
+    {
+      id: 1,
+      expense: "Food and Drink",
+      time: "5:12 pm",
+      location: "Makan Steak",
+      price: 156.0,
+      icon: cartIcon,
+      iconBackgroundColor: "#DC3434",
+    },
+    {
+      id: 2,
+      expense: "Entertainment",
+      time: "5:12 pm",
+      location: "Nonton Bioskop",
+      price: 35.2,
+      icon: transportIcon,
+      iconBackgroundColor: "#4BA83D",
+    },
+  ];
+
   //implement onMouseOver function here
   const onMouseOver = (data: any, index: number) => setActiveIndex(index);
 
@@ -195,28 +249,57 @@ const Expenses = () => {
             </Bar>
             </BarChart>
           </ResponsiveContainer>
-
+          {/* Today section */}
           <div className={styles.expensesOverviewHeader}>
             <p className={styles.expensesOverviewTitle}>Today</p>
             <button>
-              <img src={optionIcon} alt="options"/>
+              <img className={styles.expenseOption} src={optionIcon} alt="options"/>
             </button>
           </div>
 
           <ul>
-            <li className={styles.expenseItem}>
+            {/* map dataset todayExpenses and take expense, return (=>) the list of items,
+            replace the hardcoded value such as title, time, location with variables in the dataset */}
+            {todayExpenses.map((expense) => (
+              <li className={styles.expenseItem} key={expense.id}>
                 <div className={styles.expenseItemLeft}>
-                  <div style={{ backgroundColor: 'blue' }} className={styles.expenseItemDiv}>
-                    <img src={cartIcon} alt="cart" />
+                  <div style={{ backgroundColor: expense.iconBackgroundColor }} className={styles.expenseItemDiv}>
+                    <img src={cartIcon} alt={expense.expense} />
                   </div>
                   <div className={styles.expenseItemDetails}>
-                    <p className={styles.expenseItemTitle}>Grocery</p>
-                    <p className={styles.expenseItemTime}>5:12 pm • Belanja di pasar</p>
+                    <p className={styles.expenseItemTitle}>{expense.expense}</p>
+                    <p className={styles.expenseItemTime}>{expense.time} • {expense.location}</p>
                   </div>
                 </div>
-
-                <p className={styles.expenseItemPrice}>-326.800</p>
+                {/* show two digits, use JS .toFixed(2) */}
+                <p className={styles.expenseItemPrice}>{expense.price.toFixed(2)}</p>
             </li>
+            ))}
+          </ul>
+          
+          {/* Monday section */}
+          <div className={styles.expensesOverviewHeader}>
+            <p className={styles.expensesOverviewTitle}>Monday, 25 July 2022</p>
+            <button>
+              <img className={styles.expenseOption} src={optionIcon} alt="options"/>
+            </button>
+          </div>
+
+          <ul>
+            {previousExpenses.map((expense) => (
+              <li className={styles.expenseItem} key={expense.id}>
+                <div className={styles.expenseItemLeft}>
+                  <div style={{ backgroundColor: expense.iconBackgroundColor }} className={styles.expenseItemDiv}>
+                    <img src={cartIcon} alt={expense.expense} />
+                  </div>
+                  <div className={styles.expenseItemDetails}>
+                    <p className={styles.expenseItemTitle}>{expense.expense}</p>
+                    <p className={styles.expenseItemTime}>{expense.time} • {expense.location}</p>
+                  </div>
+                </div>
+                <p className={styles.expenseItemPrice}>{expense.price.toFixed(2)}</p>
+            </li>
+            ))}
           </ul>
         </section>
       </div> 

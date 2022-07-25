@@ -85,6 +85,10 @@
     font-weight: 600;
 }
 
+.expenseOption {
+    cursor: pointer;
+}
+
 .expenseItem {
     margin: 1rem;
 
@@ -106,4 +110,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.expenseItemDetails {
+    margin-left: 1rem;
+}
+
+.expenseItemTitle {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.expenseItemTime {
+    opacity: 0.5;
+}
+
+.expenseItemPrice {
+    font-weight: 600;
 }
