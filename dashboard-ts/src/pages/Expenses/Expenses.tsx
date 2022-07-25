@@ -8,6 +8,8 @@ import optionIcon from '../../assets/png/menuIcon.png';
 import cartIcon from '../../assets/svg/cartIcon.svg';
 import transportIcon from '../../assets/svg/transportIcon.svg';
 import houseIcon from '../../assets/svg/houseIcon.svg';
+import boxes from '../../assets/png/boxes.png';
+import plant from '../../assets/png/plant.png';
 
 import { BarChart, Bar, Cell, ResponsiveContainer } from 'recharts';
 
@@ -352,6 +354,15 @@ const Expenses = () => {
             </li>
             )}
           </ul>
+
+          <div className={styles.saveMoneyDiv}>
+            <img className={styles.boxes} src={boxes} alt="boxes" />
+            <img className={styles.plant} src={plant} alt="plant" />
+            <p className={styles.saveMoneyTitle}>Save more money</p>
+            {/* lorem and hit tab */}
+            <p className={styles.saveMoneyInfo}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat obcaecati inventore, rem nemo sunt eligendi dolor exercitationem rerum vel esse consectetur quae reiciendis non quaerat numquam dolorem optio aut nihil.</p>
+            <button className={styles.button} type="button">VIEW TIPS</button>
+          </div>
         </section>
       </div> 
     </main>

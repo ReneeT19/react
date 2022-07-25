@@ -23,6 +23,7 @@
 .expensesOverview {
     width: 65%;
     padding: 5rem;
+    overflow-y: scroll; //to prevent items from overflowing when the screen size changes
 }
 
 .expensesHeader {
@@ -134,6 +135,7 @@
     background-color: #F9FAFC;
     border-radius: 0 50px 50px 0;
     padding: 5rem 2rem;
+    overflow-y: scroll; //scroll inside that section so when screen size changes it won't flow out
 }
 
 .moneOverviewTitle {
@@ -168,4 +170,55 @@
     background-color: #31BA96;
     position: absolute; //positioned in relation to where the spendCategoryBar is
     border-radius: 5px;
+}
+
+.saveMoneyDiv {
+    width: 70%;
+    margin: 0 auto;
+    background-color: #edf0f6;
+    margin-top: 4rem;
+    padding: 2rem;
+    border-radius: 15px;
+
+    position: relative;
+}
+
+.boxes {
+    position: absolute;
+    top: -15px;
+    left: 29px;
+}
+
+.plant {
+    position: absolute;
+    top: -31px;
+    left: 187px;
+}
+
+.saveMoneyTitle {
+    font-weight: 600;
+    margin-top: 4rem;
+}
+
+.saveMoneyInfo {
+    opacity: 0.7;
+    margin-top: 0.5rem;
+    line-height: 21px;
+    letter-spacing: 0.428571px;
+}
+
+.button {
+    background-color: #101010;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    line-height: 19px;
+    letter-spacing: 1.5px;
+    padding: 1rem 3rem;
+    margin-top: 1.5rem;
+    width: 50%;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
 }
