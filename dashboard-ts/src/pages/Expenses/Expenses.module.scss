@@ -128,3 +128,44 @@
 .expenseItemPrice {
     font-weight: 600;
 }
+
+.moneyOverview {
+    width: 35%;
+    background-color: #F9FAFC;
+    border-radius: 0 50px 50px 0;
+    padding: 5rem 2rem;
+}
+
+.moneOverviewTitle {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 3rem;
+}
+
+.spendCategory {
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+}
+
+.spendCategoryName {
+    font-weight: 500;
+}
+
+.spendCategoryBar {
+    height: 5px;
+    width: 100%;
+    background-color: #ECEFF5;
+    position: relative;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+.spendCategoryColoredBar {
+    height: 5px;
+    // width: 20%; //use inline styling to calculate
+    background-color: #31BA96;
+    position: absolute; //positioned in relation to where the spendCategoryBar is
+    border-radius: 5px;
+}

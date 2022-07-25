@@ -198,6 +198,34 @@ const Expenses = () => {
     },
   ];
 
+  const spendCategories = [
+    {
+      id: 1,
+      category: "Food and Drinks",
+      price: 872.4,
+    },
+    {
+      id: 2,
+      category: "Shopping",
+      price: 1378.2,
+    },
+    {
+      id: 3,
+      category: "Housing",
+      price: 928.5,
+    },
+    {
+      id: 4,
+      category: "Transportation",
+      price: 420.7,
+    },
+    {
+      id: 5,
+      category: "Vehicle",
+      price: 520,
+    },
+  ];
+
   //implement onMouseOver function here
   const onMouseOver = (data: any, index: number) => setActiveIndex(index);
 
@@ -308,15 +336,21 @@ const Expenses = () => {
         <section className={styles.moneyOverview}>
           <p className={styles.moneOverviewTitle}>Where'd your money go?</p>
           <ul>
-            <li>
+            {spendCategories.map((category) =>
+              <li key={category.id}>
               <div className={styles.spendCategory}>
-                <p className={styles.spendCategoryName}>Food and Drinks</p>
-                <p className={styles.spendCategoryPrice}>872.40</p>
+                <p className={styles.spendCategoryName}>{category.category}</p>
+                <p className={styles.spendCategoryPrice}>{category.price.toFixed(2)}</p>
               </div>
               <div className={styles.spendCategoryBar}>
-                <div className={styles.spendCategoryColoredBar}></div>
+                <div
+                //use .reduce to get the total number of price
+                style={({width: `${(category.price / spendCategories.reduce
+                ((acc, current) => acc + current.price, 0))*100}%`})} 
+                className={styles.spendCategoryColoredBar}></div>
               </div>
             </li>
+            )}
           </ul>
         </section>
       </div> 
