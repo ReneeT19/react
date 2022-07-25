@@ -208,6 +208,7 @@ const Expenses = () => {
     {/* the card is the part with white background */}
       <div className={styles.expensesCard}>
         {/* <section> tag means that the content inside relates to a single theme */}
+        {/* left section of the expense card */}
         <section className={styles.expensesOverview}>
           {/* the section includes 1(header, daterange, and chart), 2(overviewHeader,items) */}
           <div className={styles.expensesHeader}>
@@ -230,8 +231,8 @@ const Expenses = () => {
           {/* install recharts to create bar charts for this project */}
            {/* https://recharts.org/en-US/examples/TinyBarChart */}
            {/* change minHeight to 9vh and change fill color to rgba so you can add opacity of .2 (20%) according to Figma */}
-          <ResponsiveContainer width="100%" minHeight="9vh">
-            <BarChart width={150} height={40} data={data}>
+          <ResponsiveContainer width="100%" height="9%">
+            <BarChart data={data}>
             {/* implement function by having a closing /Bar tag with onMouseOver function and map the data*/}
             <Bar 
               dataKey="uv" 
@@ -300,6 +301,22 @@ const Expenses = () => {
                 <p className={styles.expenseItemPrice}>{expense.price.toFixed(2)}</p>
             </li>
             ))}
+          </ul>
+        </section>
+
+        {/* right section of the expense card */}
+        <section className={styles.moneyOverview}>
+          <p className={styles.moneOverviewTitle}>Where'd your money go?</p>
+          <ul>
+            <li>
+              <div className={styles.spendCategory}>
+                <p className={styles.spendCategoryName}>Food and Drinks</p>
+                <p className={styles.spendCategoryPrice}>872.40</p>
+              </div>
+              <div className={styles.spendCategoryBar}>
+                <div className={styles.spendCategoryColoredBar}></div>
+              </div>
+            </li>
           </ul>
         </section>
       </div> 
