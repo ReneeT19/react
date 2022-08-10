@@ -1,0 +1,13 @@
+/* override mui material styles with their css global names */
+.MuiAutocomplete-root {
+    background-color:rgb(154, 206, 206);
+}
+
+.MuiAutocomplete-input {
+    background-color:   rgb(221, 234, 234);
+
+}
+
+.MuiAutocomplete-inputRoot {
+    color:rgb(59, 161, 161);
+}
