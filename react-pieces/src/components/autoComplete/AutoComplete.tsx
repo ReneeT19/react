@@ -2,6 +2,7 @@ import Autocomplete from '@mui/material/Autocomplete'
 import TextField from '@mui/material/TextField';
 import React, { useState } from 'react'
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
+import  Select  from '@mui/material/Select';
 
 const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },
@@ -36,10 +37,15 @@ const top100Films = [
       disablePortal
       id="combo-box-demo"
       options={top100Films}
+      getOptionLabel={(option) => `${option.label}`}
+      renderOption = {(props: any, option: any) => {
+        return <li {...props}>{`${option.label}: ${option.year}`}</li>;
+        }
+      }
       sx={{ width: 300 }}
       popupIcon={<KeyboardArrowDown />}
       onChange={handleChange}
-      renderInput={(params) => <TextField {...params} label="Movie" />}
+      renderInput={(params) => (<TextField {...params} label="Movie" />)}
     />
     <p>The name is {label} and the year is {year} </p>
     </>
