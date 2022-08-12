@@ -37,7 +37,7 @@ const top100Films = [
       disablePortal
       id="combo-box-demo"
       options={top100Films}
-      getOptionLabel={(option) => `${option.label}`}
+      getOptionLabel={(option) => `${option.label}: ${option.year}`}
       renderOption = {(props: any, option: any) => {
         return <li {...props}>{`${option.label}: ${option.year}`}</li>;
         }
