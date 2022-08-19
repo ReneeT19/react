@@ -2,7 +2,6 @@ import Autocomplete from '@mui/material/Autocomplete'
 import TextField from '@mui/material/TextField';
 import React, { useState } from 'react'
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
-import  Select  from '@mui/material/Select';
 
 const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },
