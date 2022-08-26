@@ -32,7 +32,7 @@ const top100Films = [
   return (
     <>
     <h3>Demo of Autocomplete from MUI material</h3>
-    <Autocomplete
+    {/* <Autocomplete
       disablePortal
       id="combo-box-demo"
       options={top100Films}
@@ -45,7 +45,21 @@ const top100Films = [
       popupIcon={<KeyboardArrowDown />}
       onChange={handleChange}
       renderInput={(params) => (<TextField {...params} label="Movie" />)}
-    />
+    /> */}
+    <Autocomplete
+        // multiple
+        id="tags-standard"
+        options={top100Films}
+        getOptionLabel={(option) => option.label}
+        // defaultValue={[top100Films[1]]}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label="Multiple values"
+            placeholder="Favorites"
+          />
+        )}
+      />
     <p>The name is {label} and the year is {year} </p>
     </>
   )
