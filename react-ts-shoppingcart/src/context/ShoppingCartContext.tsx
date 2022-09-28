@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { createContext, ReactNode, useContext } from "react";
 import { ShoppingCart } from "../components/ShoppingCart";
+import { useLocalStorage } from "../utilities/useLocalStorage";
 
 type ShoppingCartProviderProps = {
   children: ReactNode;
@@ -33,7 +34,10 @@ export function useShoppingCart() {
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   // store cart items here; specify the CartItem type in the beginning to store id and quantity properties
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  // const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  // to store the data locally so when refreshing the page the data still stays
+  const [cartItems, setCartItems] = useLocalStorage<CartItem[]>("shopping-cart", []);
+
   const [isOpen, setIsOpen] = useState(false);
 
   const cartQuantity = cartItems.reduce(
